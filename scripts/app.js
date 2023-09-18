@@ -61,5 +61,24 @@ document.getElementById('calculateParallelogram').addEventListener('click' , fun
     showResult.appendChild(section);
 })
 
-// --------Rohmbus---------
+// --------Rhombus---------
+document.getElementById('calculateRhombus').addEventListener('click' , function(){
+  const d1 = document.getElementById('d1').value;
+  const d2 = document.getElementById('d2').value;
+  const area = 0.5 * d1 * d2;
+
+  // show value in calculation area
+  const showResult = document.getElementById('dynamicResults');
+  const section = document.createElement('section');
+  section.innerHTML = `
+     <ul class="calculationListStyling">
+       <li class="d-flex justify-content-between align-items-center">
+        <p>Rhombus</p>
+        <p>${area}cm<sup>2</sup></p>
+        <button type="button" class="btn btn-primary">Convert to m<sup>2</sup></button>
+      </li>
+     </ul>
+  `
+  showResult.appendChild(section);
+})
 
