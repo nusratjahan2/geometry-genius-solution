@@ -1,22 +1,28 @@
+function calculationWithHalf(id1, id2){
+  const value1 = document.getElementById(id1).value;
+  const value2 = document.getElementById(id2).value;
+  const area = 0.5 * value1 * value2;
+  return area;
+}
+
+
+
 // --------Triangle--------
 document.getElementById('calculateTriangle').addEventListener('click' , function(){
-    const breadth = document.getElementById('breadth').value;
-    const height = document.getElementById('height').value;
-    const area = 0.5 * breadth * height;
-
-    // show value in calculation area
-    const showResult = document.getElementById('dynamicResults');
-    const section = document.createElement('section');
-    section.innerHTML = `
-       <ul class="calculationListStyling">
-         <li class="d-flex justify-content-between align-items-center">
-          <p>Triangle</p>
-          <p>${area}cm<sup>2</sup></p>
-          <button type="button" class="btn btn-primary">Convert to m<sup>2</sup></button>
-        </li>
-       </ul>
-    `
-    showResult.appendChild(section);
+  const getResult = calculationWithHalf('height' , 'breadth');
+  // show value in calculation area
+  const showResult = document.getElementById('dynamicResults');
+  const section = document.createElement('section');
+  section.innerHTML = `
+     <ul class="calculationListStyling">
+       <li class="d-flex justify-content-between align-items-center">
+        <p>Triangle</p>
+        <p>${getResult}cm<sup>2</sup></p>
+        <button type="button" class="btn btn-primary">Convert to m<sup>2</sup></button>
+      </li>
+     </ul>
+  `
+  showResult.appendChild(section);
 })
 
 // -----Rectangle-------
@@ -63,10 +69,7 @@ document.getElementById('calculateParallelogram').addEventListener('click' , fun
 
 // --------Rhombus---------
 document.getElementById('calculateRhombus').addEventListener('click' , function(){
-  const d1 = document.getElementById('d1').value;
-  const d2 = document.getElementById('d2').value;
-  const area = 0.5 * d1 * d2;
-
+  const getResult = calculationWithHalf('d1' , 'd2');
   // show value in calculation area
   const showResult = document.getElementById('dynamicResults');
   const section = document.createElement('section');
@@ -74,11 +77,30 @@ document.getElementById('calculateRhombus').addEventListener('click' , function(
      <ul class="calculationListStyling">
        <li class="d-flex justify-content-between align-items-center">
         <p>Rhombus</p>
-        <p>${area}cm<sup>2</sup></p>
+        <p>${getResult}cm<sup>2</sup></p>
         <button type="button" class="btn btn-primary">Convert to m<sup>2</sup></button>
       </li>
      </ul>
   `
   showResult.appendChild(section);
+
 })
 
+// ----------Pentagon-------------
+document.getElementById('calculatePentagon').addEventListener('click' , function(){
+  const getResult = calculationWithHalf('p' , 'b');
+  // show value in calculation area
+  const showResult = document.getElementById('dynamicResults');
+  const section = document.createElement('section');
+  section.innerHTML = `
+     <ul class="calculationListStyling">
+       <li class="d-flex justify-content-between align-items-center">
+        <p>Pentagon</p>
+        <p>${getResult}cm<sup>2</sup></p>
+        <button type="button" class="btn btn-primary">Convert to m<sup>2</sup></button>
+      </li>
+     </ul>
+  `
+  showResult.appendChild(section);
+
+})
